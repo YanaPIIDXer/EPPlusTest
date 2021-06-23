@@ -39,5 +39,18 @@ namespace EPPlusTest.View
 		/// </summary>
 		/// <param name="data">データ</param>
 		void SetText(TextData data);
+
+		/// <summary>
+		/// 図形を取得
+		/// </summary>
+		/// <param name="name">図形の名前</param>
+		/// <returns>図形データ</returns>
+		ShapeData GetShape(string name);
+
+		/// <summary>
+		/// 図形を追加
+		/// </summary>
+		/// <param name="data">図形データ</param>
+		void AddShape(ShapeData data);
 	}
 }

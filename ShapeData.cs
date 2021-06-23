@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using OfficeOpenXml.Drawing;
 
 namespace EPPlusTest
 {
@@ -17,15 +18,22 @@ namespace EPPlusTest
 		/// <summary>
 		/// 名前
 		/// </summary>
-		public string Name { get; private set; }
+		public string Name { get { return Shape.Name; } }
+
+		/// <summary>
+		/// シェイプ
+		/// </summary>
+		public ExcelShape Shape { get; private set; }
 
 		/// <summary>
 		/// コンストラクタ
 		/// </summary>
-		/// <param name="name">名前</param>
-		public ShapeData(string name)
+		/// <param name="location">座標</param>
+		/// <param name="shape">シェイプオブジェクト</param>
+		public ShapeData(Vector location, ExcelShape shape)
 		{
-			Name = name;
+			Location = location;
+			Shape = shape;
 		}
 	}
 }

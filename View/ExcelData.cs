@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using OfficeOpenXml;
 using System.IO;
+using OfficeOpenXml.Drawing;
 
 namespace EPPlusTest.View
 {
@@ -90,6 +91,32 @@ namespace EPPlusTest.View
 		public void SetText(TextData data)
 		{
 			worksheet.Cells[data.Location.row, data.Location.column].Value = data.Value;
+		}
+
+		/// <summary>
+		/// 図形を取得
+		/// </summary>
+		/// <param name="name">図形の名前</param>
+		/// <returns>図形データ</returns>
+		public ShapeData GetShape(string name)
+		{
+			var shape = worksheet.Drawings[name];
+			var location = new Vector()
+			{
+				x = shape.Position.X,
+				y = shape.Position.Y
+			};
+			ShapeData data = new ShapeData(location, shape as ExcelShape);
+			return data;
+		}
+
+		/// <summary>
+		/// 図形を追加
+		/// </summary>
+		/// <param name="data">図形データ</param>
+		public void AddShape(ShapeData data)
+		{
+			worksheet.Drawings.AddShape(data.Name, data.Shape);
 		}
 
 		/// <summary>
