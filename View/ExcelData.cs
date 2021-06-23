@@ -9,7 +9,7 @@ namespace EPPlusTest.View
 	/// <summary>
 	/// エクセルデータ
 	/// </summary>
-	public class ExcelData : IDisposable, IExcelView
+	public class ExcelData : IExcelView
 	{
 		/// <summary>
 		/// パッケージ

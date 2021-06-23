@@ -7,7 +7,7 @@ namespace EPPlusTest.View
 	/// <summary>
 	/// Excelのビューインタフェース
 	/// </summary>
-	public interface IExcelView
+	public interface IExcelView : IDisposable
 	{
 		/// <summary>
 		/// 新規作成
