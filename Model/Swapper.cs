@@ -14,11 +14,18 @@ namespace EPPlusTest.Model
 		/// </summary>
 		private IMatrixLocation location = null;
 
+		/// <summary>
+		/// コンストラクタ
+		/// </summary>
+		/// <param name="location">位置</param>
 		public Swapper(IMatrixLocation location)
 		{
 			this.location = location;
 		}
 
+		/// <summary>
+		/// スワップ
+		/// </summary>
 		public void Swap()
 		{
 			location.Swap();
