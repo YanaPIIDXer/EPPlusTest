@@ -1,5 +1,6 @@
 ﻿using System;
 using EPPlusTest.View;
+using EPPlusTest.Controller;
 
 namespace EPPlusTest
 {
@@ -9,11 +10,13 @@ namespace EPPlusTest
 		{
 			using (ExcelData inputData = new ExcelData())
 			{
-				inputData.Load("Test.xlsx");
-				for (int i = 1; i <=3; i++)
+				using (ExcelData outputData = new ExcelData())
 				{
-					var data = inputData.GetText(i, 1);
-					Console.WriteLine(data);
+					inputData.Load("Test.xlsx");
+					outputData.Create("Output.xlsx");
+
+					var swap = new SwapController(inputData, outputData);
+					swap.Swap();
 				}
 			}
 		}
