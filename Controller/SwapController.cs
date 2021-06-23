@@ -40,10 +40,16 @@ namespace EPPlusTest.Controller
 			for (int i = 1; i <= 3; i++)
 			{
 				var data = srcView.GetText(i, 1);
-				var swapper = new Swapper(data);
+				var swapper = new MatrixSwapper
+					(data);
 				swapper.Swap();
 				destView.SetText(data);
 			}
+
+			var shapeData = srcView.GetShape(0);
+			var shapeSwapper = new RectSwapper(shapeData);
+			shapeSwapper.Swap();
+			destView.AddShape(shapeData);
 
 			destView.Save();
 		}

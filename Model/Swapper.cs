@@ -5,9 +5,9 @@ using System.Text;
 namespace EPPlusTest.Model
 {
 	/// <summary>
-	/// 位置のスワップ
+	/// 行列のスワップ
 	/// </summary>
-	public class Swapper
+	public class MatrixSwapper
 	{
 		/// <summary>
 		/// 位置
@@ -18,7 +18,35 @@ namespace EPPlusTest.Model
 		/// コンストラクタ
 		/// </summary>
 		/// <param name="location">位置</param>
-		public Swapper(IMatrixLocation location)
+		public MatrixSwapper(IMatrixLocation location)
+		{
+			this.location = location;
+		}
+
+		/// <summary>
+		/// スワップ
+		/// </summary>
+		public void Swap()
+		{
+			location.Swap();
+		}
+	}
+
+	/// <summary>
+	/// 矩形のスワップ
+	/// </summary>
+	public class RectSwapper
+	{
+		/// <summary>
+		/// 位置
+		/// </summary>
+		private IRectLocation location = null;
+
+		/// <summary>
+		/// コンストラクタ
+		/// </summary>
+		/// <param name="location">位置</param>
+		public RectSwapper(IRectLocation location)
 		{
 			this.location = location;
 		}
@@ -48,6 +76,21 @@ namespace EPPlusTest.Model
 				column = matrix.Location.row
 			};
 			matrix.Location = newMatrix;
+		}
+
+		/// <summary>
+		/// 矩形の入れ替え
+		/// </summary>
+		public static void Swap(this IRectLocation rect)
+		{
+			var newRect = new Rect()
+			{
+				top = rect.Location.left,
+				bottom = rect.Location.right,
+				left = rect.Location.top,
+				right = rect.Location.bottom
+			};
+			rect.Location = newRect;
 		}
 	}
 }

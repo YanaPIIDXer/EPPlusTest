@@ -96,11 +96,11 @@ namespace EPPlusTest.View
 		/// <summary>
 		/// 図形を取得
 		/// </summary>
-		/// <param name="name">図形の名前</param>
+		/// <param name="index">インデックス</param>
 		/// <returns>図形データ</returns>
-		public ShapeData GetShape(string name)
+		public ShapeData GetShape(int index)
 		{
-			var shape = worksheet.Drawings[name] as ExcelShape;
+			var shape = worksheet.Drawings[index] as ExcelShape;
 			ShapeData data = new ShapeData(shape);
 			return data;
 		}

@@ -43,9 +43,9 @@ namespace EPPlusTest.View
 		/// <summary>
 		/// 図形を取得
 		/// </summary>
-		/// <param name="name">図形の名前</param>
+		/// <param name="index">インデックス</param>
 		/// <returns>図形データ</returns>
-		ShapeData GetShape(string name);
+		ShapeData GetShape(int index);
 
 		/// <summary>
 		/// 図形を追加
