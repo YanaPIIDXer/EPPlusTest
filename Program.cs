@@ -1,4 +1,5 @@
 ﻿using System;
+using EPPlusTest.View;
 
 namespace EPPlusTest
 {
@@ -6,7 +7,10 @@ namespace EPPlusTest
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
+			using (ExcelData inputData = new ExcelData())
+			{
+				inputData.Load("Test.xlsx");
+			}
 		}
 	}
 }
