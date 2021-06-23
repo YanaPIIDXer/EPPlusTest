@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EPPlusTest.View
+namespace EPPlusTest
 {
 	public class CellData<T> : IMatrixLocation
 	{
