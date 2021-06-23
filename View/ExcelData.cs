@@ -33,7 +33,7 @@ namespace EPPlusTest.View
 			}
 			var file = File.Create(filePath);
 			package = new ExcelPackage(file);
-			worksheet = package.Workbook.Worksheets[0];
+			worksheet = package.Workbook.Worksheets.Add("sheet1");
 		}
 
 		/// <summary>
