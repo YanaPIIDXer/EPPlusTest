@@ -100,13 +100,8 @@ namespace EPPlusTest.View
 		/// <returns>図形データ</returns>
 		public ShapeData GetShape(string name)
 		{
-			var shape = worksheet.Drawings[name];
-			var location = new Vector()
-			{
-				x = shape.Position.X,
-				y = shape.Position.Y
-			};
-			ShapeData data = new ShapeData(location, shape as ExcelShape);
+			var shape = worksheet.Drawings[name] as ExcelShape;
+			ShapeData data = new ShapeData(shape);
 			return data;
 		}
 

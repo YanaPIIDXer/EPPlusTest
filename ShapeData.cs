@@ -8,12 +8,12 @@ namespace EPPlusTest
 	/// <summary>
 	/// 図形データ
 	/// </summary>
-	public class ShapeData : IVectorLocation
+	public class ShapeData : IRectLocation
 	{
 		/// <summary>
 		/// 位置
 		/// </summary>
-		public Vector Location { get; set; }
+		public Rect Location { get; set; }
 
 		/// <summary>
 		/// 名前
@@ -30,9 +30,15 @@ namespace EPPlusTest
 		/// </summary>
 		/// <param name="location">座標</param>
 		/// <param name="shape">シェイプオブジェクト</param>
-		public ShapeData(Vector location, ExcelShape shape)
+		public ShapeData(ExcelShape shape)
 		{
-			Location = location;
+			Location = new Rect()
+			{
+				top = shape.From.Row,
+				bottom = shape.To.Row,
+				left = shape.From.Column,
+				right = shape.To.Column
+			};
 			Shape = shape;
 		}
 	}
