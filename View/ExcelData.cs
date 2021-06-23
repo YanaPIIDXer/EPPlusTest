@@ -32,6 +32,11 @@ namespace EPPlusTest.View
 			worksheet = package.Workbook.Worksheets[0];
 		}
 
+		public void Save()
+		{
+			package.Save();
+		}
+
 		/// <summary>
 		/// 現在のワークシート切り替え
 		/// </summary>
