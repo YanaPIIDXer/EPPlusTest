@@ -17,6 +17,11 @@ namespace EPPlusTest.View
 		private ExcelPackage package = null;
 
 		/// <summary>
+		/// ワークシート
+		/// </summary>
+		private ExcelWorksheet worksheet = null;
+
+		/// <summary>
 		/// 読み込み
 		/// </summary>
 		/// <param name="filePath">ファイルパス</param>
@@ -24,6 +29,25 @@ namespace EPPlusTest.View
 		{
 			var file = File.OpenRead(filePath);
 			package = new ExcelPackage(file);
+			worksheet = package.Workbook.Worksheets[0];
+		}
+
+		/// <summary>
+		/// 現在のワークシート切り替え
+		/// </summary>
+		/// <param name="index">インデックス</param>
+		public void ChangeCurrentWorksheet(int index)
+		{
+			worksheet = package.Workbook.Worksheets[index];
+		}
+
+		/// <summary>
+		/// 現在のワークシート切り替え
+		/// </summary>
+		/// <param name="name">ワークシート名</param>
+		public void ChangeCurrentWowksheet(string name)
+		{
+			worksheet = package.Workbook.Worksheets[name];
 		}
 
 		/// <summary>
