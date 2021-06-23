@@ -9,5 +9,6 @@ namespace EPPlusTest.View
 	/// </summary>
 	public interface IExcelView
 	{
+
 	}
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EPPlusTest.Model
+namespace EPPlusTest.View
 {
 	/// <summary>
 	/// 位置情報インタフェース
