@@ -15,10 +15,17 @@ namespace EPPlusTest
 		public Vector Location { get; set; }
 
 		/// <summary>
+		/// 名前
+		/// </summary>
+		public string Name { get; private set; }
+
+		/// <summary>
 		/// コンストラクタ
 		/// </summary>
-		public ShapeData()
+		/// <param name="name">名前</param>
+		public ShapeData(string name)
 		{
+			Name = name;
 		}
 	}
 }
