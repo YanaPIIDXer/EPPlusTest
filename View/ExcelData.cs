@@ -9,7 +9,7 @@ namespace EPPlusTest.View
 	/// <summary>
 	/// エクセルデータ
 	/// </summary>
-	public class ExcelData : IDisposable
+	public class ExcelData : IDisposable, IExcelView
 	{
 		/// <summary>
 		/// パッケージ
@@ -48,6 +48,28 @@ namespace EPPlusTest.View
 		public void ChangeCurrentWowksheet(string name)
 		{
 			worksheet = package.Workbook.Worksheets[name];
+		}
+
+		/// <summary>
+		/// テキストデータ取得
+		/// </summary>
+		/// <param name="row">行</param>
+		/// <param name="column">列</param>
+		/// <returns>テキストデータ</returns>
+		public TextData GetText(int row, int column)
+		{
+			var value = worksheet.Cells[row, column];
+			TextData data = new TextData(new Matrix() { row = row, column = column }, (string)value.Value);
+			return data;
+		}
+
+		/// <summary>
+		/// テキストデータ設定
+		/// </summary>
+		/// <param name="data">データ</param>
+		public void SetText(TextData data)
+		{
+			worksheet.Cells[data.Location.row, data.Location.column].Value = data.Value;
 		}
 
 		/// <summary>
