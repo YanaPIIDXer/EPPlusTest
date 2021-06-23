@@ -22,6 +22,21 @@ namespace EPPlusTest.View
 		private ExcelWorksheet worksheet = null;
 
 		/// <summary>
+		/// 新規作成
+		/// </summary>
+		/// <param name="filePath">ファイルパス</param>
+		public void Create(string filePath)
+		{
+			if (File.Exists(filePath))
+			{
+				File.Delete(filePath);
+			}
+			var file = File.Create(filePath);
+			package = new ExcelPackage(file);
+			worksheet = package.Workbook.Worksheets[0];
+		}
+
+		/// <summary>
 		/// 読み込み
 		/// </summary>
 		/// <param name="filePath">ファイルパス</param>

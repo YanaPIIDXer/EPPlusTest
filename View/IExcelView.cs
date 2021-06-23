@@ -9,6 +9,11 @@ namespace EPPlusTest.View
 	/// </summary>
 	public interface IExcelView
 	{
+		/// <summary>
+		/// 新規作成
+		/// </summary>
+		/// <param name="filePath">ファイルパス</param>
+		public void Create(string filePath);
 
 		/// <summary>
 		/// 読み込み
